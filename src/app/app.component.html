@@ -1,0 +1,16 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <app-reg-form (addForm)="onAddForm($event)" ></app-reg-form>
+    </div>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item" *ngFor="let form of forms">
+      <app-container [form]="form"></app-container>
+    </li>
+  </ul>
+</div>
+
+<router-outlet></router-outlet>
+jk

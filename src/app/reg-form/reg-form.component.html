@@ -1,0 +1,71 @@
+<form [formGroup]="form" (submit)="onSubmit()">
+  <div class="form-group">
+    <label for="validationServer01">Email address</label>
+    <input type="email"
+           class="form-control"
+           [class.is-valid]="emailCondition"
+           [class.is-invalid] = "!emailCondition&&(form.get('email').dirty||isSubmitted)"
+           id="validationServer01"
+           aria-describedby="emailHelp"
+           placeholder="Enter email"
+           formControlName="email"
+           (input)="onInput()">
+    <div class="valid-feedback">
+      нормално
+    </div>
+    <div class="invalid-feedback">
+      {{emailErrorLog}}
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password"
+           class="form-control"
+           [class.is-valid]="passCondition"
+           [class.is-invalid] = "!passCondition&&(form.get('password').dirty||isSubmitted)"
+           id="exampleInputPassword1"
+           placeholder="Password"
+           formControlName="password"
+           (input)="onInput1()">
+    <div class="valid-feedback">
+      нормално
+    </div>
+    <div class="invalid-feedback">
+      {{passErrorLog}}
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Repeat password</label>
+    <input type="password"
+           class="form-control"
+           [class.is-valid]="pass2Condition"
+           [class.is-invalid] = "!pass2Condition&&(form.get('password2').dirty||isSubmitted)"
+           id="exampleInputPassword2"
+           placeholder="Password"
+           formControlName="password2"
+           (input)="onInput2()">
+    <div class="valid-feedback">
+      нормално
+    </div>
+    <div class="invalid-feedback">
+      {{pass2ErrorLog}}
+    </div>
+  </div>
+  <div class="form-check">
+    <input type="checkbox"
+           class="form-check-input"
+           [class.is-valid]="agreed"
+           [class.is-invalid] = "!agreed&&(form.get('agree').dirty||isSubmitted)"
+           id="exampleCheck1"
+           formControlName="agree"
+           (click)="onClick()">
+    <div class="valid-feedback">
+      нормално
+    </div>
+    <div class="invalid-feedback">
+      ненормално
+    </div>
+    <label class="form-check-label" for="exampleCheck1">I agree</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
