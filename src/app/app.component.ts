@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {Iform} from "./interfaces/iform";
+import {Iform} from './interfaces/iform';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +7,9 @@ import {Iform} from "./interfaces/iform";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  forms:Iform[] = [];
+  forms: Iform[] = [];
   title = 'emailForm';
-  onAddForm(form:Iform){
-  this.forms.unshift(form);
+  onAddForm(form: Iform) {
+    this.forms.unshift(form);
   }
 }

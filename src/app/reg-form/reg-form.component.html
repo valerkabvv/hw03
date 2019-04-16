@@ -3,62 +3,58 @@
     <label for="validationServer01">Email address</label>
     <input type="email"
            class="form-control"
-           [class.is-valid]="emailCondition"
-           [class.is-invalid] = "!emailCondition&&(form.get('email').dirty||isSubmitted)"
+           [class.is-valid]="form.get('email').valid&&form.get('email').dirty"
+           [class.is-invalid] = "form.get('email').invalid&&(form.get('email').dirty||isSubmitted)"
            id="validationServer01"
            aria-describedby="emailHelp"
            placeholder="Enter email"
-           formControlName="email"
-           (input)="onInput()">
+           formControlName="email">
     <div class="valid-feedback">
       нормално
     </div>
     <div class="invalid-feedback">
-      {{emailErrorLog}}
+      {{form.get('email').getError('invalidEmail')}}
     </div>
   </div>
-  <div class="form-group">
+  <div class="form-group" formGroupName="passwords">
     <label for="exampleInputPassword1">Password</label>
     <input type="password"
            class="form-control"
-           [class.is-valid]="passCondition"
-           [class.is-invalid] = "!passCondition&&(form.get('password').dirty||isSubmitted)"
+           [class.is-valid]="form.get('passwords').get('password').valid&&form.get('passwords').get('password').dirty"
+           [class.is-invalid] = "form.get('passwords').get('password').invalid&&(form.get('passwords').get('password').dirty||isSubmitted)"
            id="exampleInputPassword1"
            placeholder="Password"
-           formControlName="password"
-           (input)="onInput1()">
+           formControlName="password">
     <div class="valid-feedback">
       нормално
     </div>
     <div class="invalid-feedback">
-      {{passErrorLog}}
+      {{form.get('passwords').get('password').getError('invalidPassword')}}
     </div>
   </div>
-  <div class="form-group">
+  <div class="form-group" formGroupName="passwords">
     <label for="exampleInputPassword1">Repeat password</label>
     <input type="password"
            class="form-control"
-           [class.is-valid]="pass2Condition"
-           [class.is-invalid] = "!pass2Condition&&(form.get('password2').dirty||isSubmitted)"
+           [class.is-valid]="form.get('passwords').valid&&form.get('passwords').get('password2').dirty"
+           [class.is-invalid] = "form.get('passwords').invalid&&(form.get('passwords').get('password2').dirty||isSubmitted)"
            id="exampleInputPassword2"
            placeholder="Password"
-           formControlName="password2"
-           (input)="onInput2()">
+           formControlName="password2">
     <div class="valid-feedback">
       нормално
     </div>
     <div class="invalid-feedback">
-      {{pass2ErrorLog}}
+      {{form.get('passwords').getError('invalidPassword2')}}
     </div>
   </div>
   <div class="form-check">
     <input type="checkbox"
            class="form-check-input"
-           [class.is-valid]="agreed"
-           [class.is-invalid] = "!agreed&&(form.get('agree').dirty||isSubmitted)"
+           [class.is-valid]="this.form.value.agree"
+           [class.is-invalid] = "!this.form.value.agree&&(form.get('agree').dirty||isSubmitted)"
            id="exampleCheck1"
-           formControlName="agree"
-           (click)="onClick()">
+           formControlName="agree">
     <div class="valid-feedback">
       нормално
     </div>
