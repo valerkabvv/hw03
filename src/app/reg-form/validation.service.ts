@@ -6,7 +6,6 @@ import {FormControl, FormGroup, ValidationErrors} from '@angular/forms';
 })
 export class ValidationService {
 
-  form: any;
   constructor() { }
 
     passwordValidator(control: FormControl): ValidationErrors {
